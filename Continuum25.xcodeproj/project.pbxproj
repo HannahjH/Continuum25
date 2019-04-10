@@ -13,9 +13,12 @@
 		AF6372BF225D2684003D39BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6372BD225D2684003D39BB /* LaunchScreen.storyboard */; };
 		AF6372C9225D2696003D39BB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6372C8225D2696003D39BB /* CloudKit.framework */; };
 		AF6372D0225D2AA5003D39BB /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6372CF225D2AA5003D39BB /* PostListTableViewController.swift */; };
-		AF6372D2225D2AE2003D39BB /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6372D1225D2AE2003D39BB /* PostDetailTableViewController.swift */; };
 		AF6372D4225D2B83003D39BB /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6372D3225D2B83003D39BB /* AddPostTableViewController.swift */; };
 		AF6372D6225D2C13003D39BB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6372D5225D2C13003D39BB /* Post.swift */; };
+		AF6372D8225D3197003D39BB /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6372D7225D3197003D39BB /* Comment.swift */; };
+		AF6372DA225D327D003D39BB /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6372D9225D327D003D39BB /* PostController.swift */; };
+		AF6372DD225D36C3003D39BB /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6372DC225D36C3003D39BB /* PostTableViewCell.swift */; };
+		AF6372DF225D43D5003D39BB /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6372DE225D43D5003D39BB /* PostDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,9 +31,12 @@
 		AF6372C6225D2693003D39BB /* Continuum25.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Continuum25.entitlements; sourceTree = "<group>"; };
 		AF6372C8225D2696003D39BB /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		AF6372CF225D2AA5003D39BB /* PostListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListTableViewController.swift; sourceTree = "<group>"; };
-		AF6372D1225D2AE2003D39BB /* PostDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewController.swift; sourceTree = "<group>"; };
 		AF6372D3225D2B83003D39BB /* AddPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
 		AF6372D5225D2C13003D39BB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		AF6372D7225D3197003D39BB /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		AF6372D9225D327D003D39BB /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		AF6372DC225D36C3003D39BB /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		AF6372DE225D43D5003D39BB /* PostDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,7 @@
 				AF6372CE225D2A93003D39BB /* Model */,
 				AF6372CD225D2A8D003D39BB /* Model Controller */,
 				AF6372CC225D2A82003D39BB /* View Controller */,
+				AF6372DB225D36AC003D39BB /* Views */,
 				AF6372CB225D2A75003D39BB /* Storyboard */,
 				AF6372CA225D26F8003D39BB /* Resources */,
 			);
@@ -106,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				AF6372CF225D2AA5003D39BB /* PostListTableViewController.swift */,
-				AF6372D1225D2AE2003D39BB /* PostDetailTableViewController.swift */,
+				AF6372DE225D43D5003D39BB /* PostDetailTableViewController.swift */,
 				AF6372D3225D2B83003D39BB /* AddPostTableViewController.swift */,
 			);
 			path = "View Controller";
@@ -115,6 +122,7 @@
 		AF6372CD225D2A8D003D39BB /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AF6372D9225D327D003D39BB /* PostController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -123,8 +131,17 @@
 			isa = PBXGroup;
 			children = (
 				AF6372D5225D2C13003D39BB /* Post.swift */,
+				AF6372D7225D3197003D39BB /* Comment.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AF6372DB225D36AC003D39BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF6372DC225D36C3003D39BB /* PostTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,9 +224,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF6372B5225D2682003D39BB /* AppDelegate.swift in Sources */,
+				AF6372D8225D3197003D39BB /* Comment.swift in Sources */,
 				AF6372D0225D2AA5003D39BB /* PostListTableViewController.swift in Sources */,
+				AF6372DD225D36C3003D39BB /* PostTableViewCell.swift in Sources */,
 				AF6372D4225D2B83003D39BB /* AddPostTableViewController.swift in Sources */,
-				AF6372D2225D2AE2003D39BB /* PostDetailTableViewController.swift in Sources */,
+				AF6372DA225D327D003D39BB /* PostController.swift in Sources */,
+				AF6372DF225D43D5003D39BB /* PostDetailTableViewController.swift in Sources */,
 				AF6372D6225D2C13003D39BB /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,7 +379,7 @@
 				CODE_SIGN_ENTITLEMENTS = Continuum25/Continuum25.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5VMA54SBQ;
-				INFOPLIST_FILE = Continuum25/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Continuum25/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +398,7 @@
 				CODE_SIGN_ENTITLEMENTS = Continuum25/Continuum25.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5VMA54SBQ;
-				INFOPLIST_FILE = Continuum25/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Continuum25/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
