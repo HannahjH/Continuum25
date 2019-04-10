@@ -8,21 +8,21 @@
 
 import UIKit
 
-class AddPostTableViewController: UITableViewController {
+class AddPostTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var captionTextField: UITextField!
-    
-    var selectedImage: UIImage?
+        
+    var photo: UIImage?
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         captionTextField.text = nil
     }
-
+    
     @IBAction func addPostButtonTapped(_ sender: Any) {
-        guard let photo = selectedImage,
+        guard let photo = photo,
             let caption = captionTextField.text else { return }
-        PostController.shared.createPostWith(photo: photo, caption: caption) { (postq) in
+        PostController.shared.createPostWith(photo: photo, caption: caption) { (post) in
             self.tabBarController?.selectedIndex = 0
         }
     }
@@ -31,13 +31,20 @@ class AddPostTableViewController: UITableViewController {
         self.tabBarController?.selectedIndex = 0
     }
     
-    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        if segue.identifier == "toPhotoSelector" {
+            let photoSelector = segue.destination as? PhotoSelectorViewController
+            photoSelector?.delegate = self
+        }
     }
+}
 
+extension AddPostTableViewController: PhotoSelectorViewControllerDelegate {
+    func photoSelectorViewControllerSelected(image: UIImage) {
+        self.photo = image
+    }
 
 }

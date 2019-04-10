@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Because Trevor said so</string>
+	<key>NSCameraUsageDescription</key>
+	<string>so said Trevor because</string>
 </dict>
 </plist>

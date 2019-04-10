@@ -12,7 +12,6 @@ class PostDetailTableViewController: UITableViewController {
 
     @IBOutlet weak var photoImageView: UIImageView!
     
-    
     var post: Post? {
         didSet{
             updateViews()
@@ -53,6 +52,10 @@ class PostDetailTableViewController: UITableViewController {
         presentCommentAlertController()
     }
     @IBAction func shareButton(_ sender: Any) {
+        guard let caption = post?.caption, let photo = post?.photo else {return}
+        let userActivity = UIActivityViewController(activityItems: [caption, photo], applicationActivities: nil)
+        present(userActivity, animated: true)
+        
     }
     @IBAction func followButton(_ sender: Any) {
     }
