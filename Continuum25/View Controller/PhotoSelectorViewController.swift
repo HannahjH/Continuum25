@@ -21,42 +21,36 @@ class PhotoSelectorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
     @IBAction func selectImageButtonTapped(_ sender: Any) {
+        presentImagePickerActionSheet()
+        selectImageButton.titleLabel?.text = ""
     }
     
     func presentImagePickerActionSheet() {
         let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
 //        imagePickerController.delegate = self
         let actionSheet = UIAlertController(title: "Select a Photo", message: nil, preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             actionSheet.addAction(UIAlertAction(title: "Photo", style: .default, handler: { (_) in
                 imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+                self.present(imagePickerController, animated: true)
             }))
         }
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
                 imagePickerController.sourceType = UIImagePickerController.SourceType.camera
+                self.present(imagePickerController, animated: true)
             }))
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         actionSheet.addAction(cancelAction)
         present(actionSheet, animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

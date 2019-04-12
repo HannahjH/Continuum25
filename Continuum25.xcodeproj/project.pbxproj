@@ -21,6 +21,7 @@
 		AF6372DF225D43D5003D39BB /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6372DE225D43D5003D39BB /* PostDetailTableViewController.swift */; };
 		AF637310225E7F44003D39BB /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF63730F225E7F44003D39BB /* SearchableRecord.swift */; };
 		AF637312225E9482003D39BB /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF637311225E9482003D39BB /* PhotoSelectorViewController.swift */; };
+		AF63731C225FD392003D39BB /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF63731B225FD392003D39BB /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		AF6372DE225D43D5003D39BB /* PostDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewController.swift; sourceTree = "<group>"; };
 		AF63730F225E7F44003D39BB /* SearchableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 		AF637311225E9482003D39BB /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
+		AF63731B225FD392003D39BB /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				AF6372BB225D2684003D39BB /* Assets.xcassets */,
 				AF6372BD225D2684003D39BB /* LaunchScreen.storyboard */,
 				AF6372C0225D2684003D39BB /* Info.plist */,
+				AF63731B225FD392003D39BB /* UIViewControllerExtension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				AF637312225E9482003D39BB /* PhotoSelectorViewController.swift in Sources */,
 				AF6372DA225D327D003D39BB /* PostController.swift in Sources */,
 				AF6372DF225D43D5003D39BB /* PostDetailTableViewController.swift in Sources */,
+				AF63731C225FD392003D39BB /* UIViewControllerExtension.swift in Sources */,
 				AF6372D6225D2C13003D39BB /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,7 +388,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Continuum25/Continuum25.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Continuum25/Resources/Continuum25.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5VMA54SBQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Continuum25/Resources/Info.plist";
@@ -403,7 +407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Continuum25/Continuum25.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Continuum25/Resources/Continuum25.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5VMA54SBQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Continuum25/Resources/Info.plist";

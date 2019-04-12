@@ -15,16 +15,16 @@ class AddPostTableViewController: UITableViewController, UIImagePickerController
     var photo: UIImage?
     
     override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        captionTextField.text = nil
+        super.viewDidDisappear(true)
+        captionTextField.text = ""
     }
     
     @IBAction func addPostButtonTapped(_ sender: Any) {
         guard let photo = photo,
             let caption = captionTextField.text else { return }
         PostController.shared.createPostWith(photo: photo, caption: caption) { (post) in
-            self.tabBarController?.selectedIndex = 0
         }
+        self.tabBarController?.selectedIndex = 0
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {

@@ -12,7 +12,7 @@ class PostListTableViewController: UITableViewController {
     
     @IBOutlet weak var postSearchBar: UISearchBar!
     
-    var resultsArray: [SearchableRecord] = []
+        var resultsArray: [Post] = []
     var isSearching: Bool = false
     var dataSource: [SearchableRecord] {
         return isSearching ? resultsArray : PostController.shared.posts
@@ -21,11 +21,24 @@ class PostListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         resultsArray = PostController.shared.posts
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         postSearchBar.delegate = self
+        performFullSync(completion: nil)
+    }
+    
+    func performFullSync(completion: ((Bool) -> Void)?){
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        PostController.shared.fetchPosts { (posts) in
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.tableView.reloadData()
+                completion?(posts != nil)
+            }
+        }
     }
     
     // MARK: - Table view data source
@@ -37,10 +50,10 @@ class PostListTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath)
-        let post = dataSource[indexPath.row] as? Post
-        cell.textLabel?.text = post?.caption
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableViewCell
+        let post = resultsArray[indexPath.row]
+        cell?.post = post
+        return cell ?? UITableViewCell()
     }
     
     // MARK: - Navigation
@@ -48,7 +61,7 @@ class PostListTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPostDetailVC" {
-            let destinationVC = segue.identifier as? PostDetailTableViewController
+            let destinationVC = segue.destination as? PostDetailTableViewController
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let post = PostController.shared.posts[indexPath.row]
             destinationVC?.post = post
